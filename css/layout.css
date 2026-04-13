@@ -1,17 +1,15 @@
 /* ===========================
    LAYOUT.CSS
-   Estructura de la página:
-   header, nav, hero, secciones
+   Navbar, hero, secciones y footer
    =========================== */
 
 
 /* --------------------
    BLOCK: .navbar
-   (la barra de navegación)
    -------------------- */
 
 .navbar {
-  position: fixed;          /* Queda pegada arriba al hacer scroll */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -20,8 +18,7 @@
   transition: var(--transicion);
 }
 
-/* MODIFIER: .navbar--scrolled
-   Se agrega con JS cuando el usuario baja la página */
+/* MODIFIER: .navbar--scrolled */
 .navbar--scrolled {
   background-color: rgba(245, 239, 224, 0.97);
   backdrop-filter: blur(8px);
@@ -53,7 +50,6 @@
   padding-bottom: 4px;
 }
 
-/* Línea animada bajo los links del nav */
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -76,15 +72,14 @@
 
 /* --------------------
    BLOCK: .hero
-   (la sección principal al tope)
    -------------------- */
 
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 80px;          /* Para que no quede bajo el navbar fijo */
-  background-color: var(--color-crema);
+  padding-top: 80px;
+  background-color: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -105,7 +100,7 @@
 
 /* ELEMENT: .hero__titulo */
 .hero__titulo {
-  font-size: clamp(3rem, 8vw, 6rem); /* Tamaño fluido según pantalla */
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 700;
   color: var(--color-cafe);
   line-height: 1.05;
@@ -127,10 +122,6 @@
 }
 
 /* ELEMENT: .hero__imagen */
-.hero__imagen {
-  position: relative;
-}
-
 .hero__imagen img {
   width: 100%;
   max-width: 520px;
@@ -139,13 +130,12 @@
   animation: flotar 4s ease-in-out infinite;
 }
 
-/* Animación suave de "flotar" para la imagen del hero */
 @keyframes flotar {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-12px); }
 }
 
-/* ELEMENT: .hero__badge (el pequeño badge dorado) */
+/* ELEMENT: .hero__badge */
 .hero__badge {
   display: inline-flex;
   align-items: center;
@@ -164,7 +154,6 @@
 
 /* --------------------
    BLOCK: .seccion
-   (contenedor genérico de cada sección)
    -------------------- */
 
 .seccion {
@@ -172,7 +161,7 @@
 }
 
 .seccion--crema {
-  background-color: var(--color-crema);
+  background-color: transparent;
 }
 
 .seccion--blanca {
@@ -212,13 +201,15 @@
 
 /* --------------------
    BLOCK: .footer
+   Footer con fondo crema sólido (sin patrón)
    -------------------- */
 
 .footer {
-  background-color: var(--color-cafe);
-  color: var(--color-crema);
+  background-color: var(--color-crema);
+  color: var(--color-cafe);
   padding: var(--espacio-lg) 0 var(--espacio-md);
   text-align: center;
+  border-top: 1px solid rgba(200, 151, 62, 0.25);
 }
 
 /* ELEMENT: nombre del café */
@@ -230,51 +221,52 @@
   margin-bottom: 0.1rem;
 }
 
-/* ELEMENT: subtítulo "Cat Café & Pastelería" */
-.footer__subtitulo {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--color-dorado-claro);
-  opacity: 0.8;
-  margin-bottom: 0.75rem;
+/* ELEMENT: copyright */
+.footer__texto {
+  font-size: 0.82rem;
+  opacity: 0.55;
+  margin-top: 0.25rem;
+  color: var(--color-cafe-medio);
 }
 
-/* ELEMENT: párrafo descriptivo */
-.footer__descripcion {
-  font-size: 0.9rem;
-  color: var(--color-crema);
-  opacity: 0.65;
-  max-width: 520px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* ELEMENT: línea separadora decorativa */
-.footer__separador {
-  width: 60px;
-  height: 1.5px;
-  background-color: var(--color-dorado);
-  opacity: 0.4;
-  margin: 1.8rem auto;
-  border-radius: 2px;
-}
-
-/* ELEMENT: texto "Conoce a nuestra familia felina" */
-.footer__gatitos-titulo {
-  font-family: var(--fuente-titulo);
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--color-dorado-claro);
-  opacity: 0.85;
-  margin-bottom: 1.4rem;
-}
 
 /* --------------------
-   BLOCK: .footer__gatitos
-   Fila de circulitos de gatitos
+   BLOCK: .galeria-gatos
+   Cuadrícula rotatoria de fotos de gatitos en el hero
    -------------------- */
+
+.galeria-gatos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ELEMENT: cada celda de la galería */
+.galeria-gatos__celda {
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(61, 43, 31, 0.15);
+  border: 2px solid rgba(200, 151, 62, 0.25);
+}
+
+/* ELEMENT: imagen dentro de la celda */
+.galeria-gatos__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  border-radius: calc(var(--radio-md) - 2px);
+}
+
+/* Efecto hover */
+.galeria-gatos__celda:hover .galeria-gatos__img {
+  transform: scale(1.06);
+}
 
 .footer__gatitos {
   display: flex;
@@ -325,7 +317,7 @@
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-  color: var(--color-crema);
+  color: black;
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -335,11 +327,4 @@
 .footer__gatito:hover .footer__gatito-nombre {
   opacity: 0.8;
   transform: translateY(0);
-}
-
-/* ELEMENT: copyright */
-.footer__texto {
-  font-size: 0.82rem;
-  opacity: 0.45;
-  margin-top: 0.25rem;
 }

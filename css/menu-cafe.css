@@ -1,31 +1,27 @@
 /* ===========================
    MENU-CAFE.CSS
    Sección del menú de cafés
-   (inspirado exactamente en la imagen 2:
-   fondo blanco, cuadrícula de tazas, texto limpio)
    =========================== */
 
 
 /* --------------------
    BLOCK: .menu-cafe
-   (la sección completa de cafés)
    -------------------- */
 
 .menu-cafe {
-  background-color: #FFFFFF;  /* Fondo blanco puro como en la imagen 2 */
+  background-color: #FFFFFF;
   padding: var(--espacio-xl) 0;
 }
 
 
 /* --------------------
    BLOCK: .card-cafe
-   (tarjeta de bebida, idéntica al estilo de la imagen 2)
    -------------------- */
 
 .card-cafe {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* Texto alineado a la izquierda como en imagen 2 */
+  align-items: flex-start;
   padding: 1.5rem 0.5rem 1rem;
   transition: var(--transicion);
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -35,10 +31,10 @@
   transform: translateY(-4px);
 }
 
-/* ELEMENT: contenedor de la imagen (taza vista desde arriba) */
+/* ELEMENT: .card-cafe__imagen-wrap */
 .card-cafe__imagen-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* Hace que el contenedor sea cuadrado */
+  aspect-ratio: 1 / 1;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -48,6 +44,7 @@
   background-color: #f5f5f5;
 }
 
+/* ELEMENT: .card-cafe__imagen */
 .card-cafe__imagen {
   width: 100%;
   height: 100%;
@@ -60,7 +57,7 @@
   transform: scale(1.04);
 }
 
-/* ELEMENT: fila de nombre y precio (en la misma línea, separados por /) */
+/* ELEMENT: .card-cafe__encabezado */
 .card-cafe__encabezado {
   display: flex;
   align-items: baseline;
@@ -70,7 +67,7 @@
   width: 100%;
 }
 
-/* ELEMENT: el nombre del café */
+/* ELEMENT: .card-cafe__nombre */
 .card-cafe__nombre {
   font-family: var(--fuente-titulo);
   font-size: 0.95rem;
@@ -79,14 +76,14 @@
   line-height: 1.3;
 }
 
-/* ELEMENT: el separador "/" entre nombre y precio */
+/* ELEMENT: .card-cafe__barra */
 .card-cafe__barra {
   color: #999;
   margin: 0 4px;
   font-size: 0.9rem;
 }
 
-/* ELEMENT: el precio */
+/* ELEMENT: .card-cafe__precio */
 .card-cafe__precio {
   font-family: var(--fuente-cuerpo);
   font-size: 0.9rem;
@@ -94,38 +91,51 @@
   color: #555;
 }
 
-/* ELEMENT: la descripción corta */
+/* ELEMENT: .card-cafe__descripcion */
 .card-cafe__descripcion {
   font-size: 0.82rem;
   color: #888;
   line-height: 1.5;
-  font-style: normal;
   max-width: 180px;
 }
 
 
 /* --------------------
-   Cuadrícula del menú de cafés
-   (3 columnas × N filas, como en la imagen 2)
+   Separador entre calientes y fríos
    -------------------- */
 
-.menu-cafe__grid {
-  /* Bootstrap .row y .col- manejan esto,
-     pero aquí reforzamos el espaciado vertical */
-  row-gap: 0; /* Bootstrap ya da gap */
+.menu-cafe__separador-categoria {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 2.5rem 0 1.5rem;
+  padding: 0 0.75rem;
 }
 
-/* Separadores horizontales entre filas (efecto de la imagen 2) */
-.menu-cafe__separador {
-  border: none;
-  border-top: 1px solid rgba(0,0,0,0.07);
-  margin: 0.5rem 0;
+.menu-cafe__separador-categoria::before,
+.menu-cafe__separador-categoria::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200, 151, 62, 0.4), transparent);
+}
+
+/* ELEMENT: etiqueta del separador */
+.menu-cafe__separador-label {
+  font-family: var(--fuente-titulo);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  white-space: nowrap;
+  opacity: 0.75;
 }
 
 
 /* --------------------
    BLOCK: .filtro-cafe
-   (botones para filtrar tipo de café)
    -------------------- */
 
 .filtro-cafe {
@@ -135,7 +145,7 @@
   margin-bottom: var(--espacio-lg);
 }
 
-/* ELEMENT: cada botón de filtro */
+/* ELEMENT: .filtro-cafe__btn */
 .filtro-cafe__btn {
   padding: 0.45rem 1.2rem;
   border-radius: var(--radio-pill);
@@ -153,7 +163,7 @@
   color: var(--color-cafe);
 }
 
-/* MODIFIER: filtro activo */
+/* MODIFIER: .filtro-cafe__btn--activo */
 .filtro-cafe__btn--activo {
   background-color: var(--color-cafe);
   color: white;

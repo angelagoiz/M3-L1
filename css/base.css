@@ -3,75 +3,70 @@
    Variables, reset y tipografía
    =========================== */
 
-/* 
-  Las variables CSS se definen aquí.
-  Piensa en ellas como "cajas" donde guardas
-  colores y valores que usarás en todo el proyecto.
-  Si quieres cambiar el color principal, solo lo cambias aquí.
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
   /* Colores principales */
-  --color-crema:       #F5EFE0;
+  --color-crema:        #F5EFE0;
   --color-crema-oscura: #EDE4CF;
-  --color-dorado:      #C8973E;
+  --color-dorado:       #C8973E;
   --color-dorado-claro: #DDB96A;
-  --color-cafe:        #3D2B1F;
-  --color-cafe-medio:  #6B4226;
-  --color-cafe-claro:  #9C6644;
-  --color-oscuro:      #2A1A0E;
-  --color-blanco:      #FDFAF4;
-  --color-texto:       #3D2B1F;
-  --color-texto-suave: #7A5C44;
-  --color-card-dark:   #2A1A0E;
+  --color-cafe:         #3D2B1F;
+  --color-cafe-medio:   #6B4226;
+  --color-cafe-claro:   #9C6644;
+  --color-oscuro:       #2A1A0E;
+  --color-blanco:       #FDFAF4;
+  --color-texto:        #3D2B1F;
+  --color-texto-suave:  #7A5C44;
+  --color-card-dark:    #2A1A0E;
 
   /* Tipografía */
-  --fuente-titulo:     'Playfair Display', Georgia, serif;
-  --fuente-cuerpo:     'Jost', sans-serif;
+  --fuente-titulo: 'Playfair Display', Georgia, serif;
+  --fuente-cuerpo: 'Jost', sans-serif;
 
   /* Espaciados */
-  --espacio-xs:  0.5rem;
-  --espacio-sm:  1rem;
-  --espacio-md:  1.5rem;
-  --espacio-lg:  2.5rem;
-  --espacio-xl:  4rem;
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2.5rem;
+  --espacio-xl: 4rem;
 
   /* Bordes redondeados */
-  --radio-sm:    8px;
-  --radio-md:    16px;
-  --radio-lg:    24px;
-  --radio-pill:  50px;
+  --radio-sm:   8px;
+  --radio-md:   16px;
+  --radio-lg:   24px;
+  --radio-pill: 50px;
 
   /* Sombras */
-  --sombra-card: 0 4px 20px rgba(61, 43, 31, 0.08);
+  --sombra-card:  0 4px 20px rgba(61, 43, 31, 0.08);
   --sombra-hover: 0 8px 32px rgba(61, 43, 31, 0.16);
 
   /* Transiciones */
-  --transicion:  all 0.3s ease;
+  --transicion: all 0.3s ease;
 }
 
-/* Reset básico: elimina márgenes y rellenos
-   que los navegadores ponen por defecto */
+/* Reset */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Hace que el padding no agrande las cajas */
+  box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth; /* Scroll suave al hacer clic en links */
+  scroll-behavior: smooth;
 }
 
+/* Fondo con patrón de siluetas de gato en oro sutil */
 body {
   font-family: var(--fuente-cuerpo);
-  background-color: var(--color-crema);
   color: var(--color-texto);
   line-height: 1.6;
-  overflow-x: hidden; /* Evita scroll horizontal accidental */
+  overflow-x: hidden;
+  background-color: #F5EFE0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23C8973E' stroke-width='1.2' opacity='0.2'%3E%3Cellipse cx='60' cy='68' rx='22' ry='20'/%3E%3Cpolygon points='40,52 34,36 50,48'/%3E%3Cpolygon points='80,52 86,36 70,48'/%3E%3Cline x1='38' y1='68' x2='20' y2='64'/%3E%3Cline x1='38' y1='72' x2='20' y2='72'/%3E%3Cline x1='38' y1='76' x2='20' y2='80'/%3E%3Cline x1='82' y1='68' x2='100' y2='64'/%3E%3Cline x1='82' y1='72' x2='100' y2='72'/%3E%3Cline x1='82' y1='76' x2='100' y2='80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
 }
 
 img {
