@@ -1,23 +1,11 @@
 /* ===========================
-   MENU-CAFE.CSS
    Sección del menú de cafés
    =========================== */
-
-
-/* --------------------
-   BLOCK: .menu-cafe
-   -------------------- */
 
 .menu-cafe {
   background-color: #FFFFFF;
   padding: var(--espacio-xl) 0;
 }
-
-
-/* --------------------
-   BLOCK: .card-cafe
-   -------------------- */
-
 .card-cafe {
   display: flex;
   flex-direction: column;
@@ -31,7 +19,6 @@
   transform: translateY(-4px);
 }
 
-/* ELEMENT: .card-cafe__imagen-wrap */
 .card-cafe__imagen-wrap {
   width: 100%;
   aspect-ratio: 1 / 1;

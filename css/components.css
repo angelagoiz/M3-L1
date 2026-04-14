@@ -1,14 +1,6 @@
 /* ===========================
-   COMPONENTS.CSS
    Cards de postres y botones
-   (inspirado en la primera imagen)
    =========================== */
-
-
-/* --------------------
-   BLOCK: .btn
-   (botones reutilizables)
-   -------------------- */
 
 .btn {
   display: inline-flex;
@@ -81,12 +73,6 @@
 }
 
 
-/* --------------------
-   BLOCK: .card-postre
-   (tarjeta de producto tipo pastelería)
-   Inspirado en la imagen 1: Bootstrap cards con estilo cremoso
-   -------------------- */
-
 /* BEM: el bloque principal */
 .card-postre {
   background-color: var(--color-blanco);
@@ -101,7 +87,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 100%;  /* Importante para que todas las cards tengan la misma altura */
+  height: 100%;  
 }
 
 .card-postre:hover {
@@ -109,7 +95,7 @@
   box-shadow: var(--sombra-hover);
 }
 
-/* MODIFIER: card oscura (como la de "Chocolate Lava Tart" en la imagen) */
+/* MODIFIER: card oscura  */
 .card-postre--oscura {
   background-color: var(--color-card-dark);
   border-color: transparent;
@@ -199,9 +185,9 @@
   border-radius: var(--radio-pill);
 }
 
-/* ELEMENT: contenedor del botón (empuja el botón abajo) */
+/* ELEMENT: contenedor del botón  */
 .card-postre__accion {
-  margin-top: auto; /* Truco: empuja el botón al fondo de la card */
+  margin-top: auto; 
   width: 100%;
 }
 
@@ -213,7 +199,6 @@
 
 /* --------------------
    BLOCK: .carrito-flotante
-   (el indicador del carrito en el navbar)
    -------------------- */
 
 .carrito-flotante {
@@ -257,8 +242,7 @@
 
 
 /* --------------------
-   BLOCK: .toast
-   (notificación al agregar al carrito)
+   notificación al agregar al carrito
    -------------------- */
 
 .toast {
